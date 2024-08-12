@@ -1,3 +1,12 @@
 from django.db import models
+from robot.models import Robot
 
-# Create your models here.
+
+# Mission model
+class Mission(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    robot = models.ForeignKey(Robot, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
