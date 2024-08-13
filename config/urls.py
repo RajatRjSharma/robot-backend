@@ -20,9 +20,14 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from mission.views import MissionViewSet
 from robot.views import RobotViewSet
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = DefaultRouter()
 router.register(r"robot", RobotViewSet)
 router.register(r"mission", MissionViewSet)
 
-urlpatterns = [path("admin/", admin.site.urls), path("", include(router.urls))]
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include(router.urls)),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

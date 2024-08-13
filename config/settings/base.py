@@ -10,12 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 from decouple import config
+from ast import literal_eval
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -23,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-%8tl=*w2ievmo^9(7fwhmze1uy9lt2=684-)m5nfii4lhht#mt"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = literal_eval(config("DEBUG_MODE", default="True"))
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = literal_eval(
+    config("ALLOWED_HOST", default="['localhost', '127.0.0.1']")
+)
 
 # Application definition
 
@@ -42,12 +43,14 @@ INSTALLED_APPS = [
     # Third party modules
     "rest_framework",
     "channels",
+    "corsheaders",
     # Custom modules
     "robot",
     "mission",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -129,7 +132,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -141,9 +145,9 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [
-                (config("REDIS_HOST"), config("REDIS_PORT"))
-            ],  # Redis server address
+            "hosts": [(config("REDIS_URL"))],  # Redis server address
         },
     },
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
