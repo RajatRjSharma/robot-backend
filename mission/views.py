@@ -5,7 +5,7 @@ from .serializers import MissionSerializer, MissionRetrieveSerializer
 
 # MissionViewSet GET-LIST GET-SINGLE POST PUT DELETE
 class MissionViewSet(viewsets.ModelViewSet):
-    queryset = Mission.objects.all()
+    queryset = Mission.objects.all().order_by("id")
 
     def get_serializer_class(self):
         if self.action == "retrieve":

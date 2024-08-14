@@ -5,5 +5,5 @@ from .serializers import RobotSerializer
 
 # RobotViewSet GET-LIST GET-SINGLE POST PUT DELETE
 class RobotViewSet(viewsets.ModelViewSet):
-    queryset = Robot.objects.all()
+    queryset = Robot.objects.all().order_by("id")
     serializer_class = RobotSerializer
