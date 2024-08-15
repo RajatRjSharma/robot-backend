@@ -6,6 +6,9 @@ from robot.models import Robot
 
 
 class MissionViewSetTests(APITestCase):
+    """
+    Test cases for Mission APIs.
+    """
 
     def setUp(self):
         # Create a Robot instance

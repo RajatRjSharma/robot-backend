@@ -5,6 +5,10 @@ from .models import Mission
 
 # Mission serializer
 class MissionSerializer(serializers.ModelSerializer):
+    """
+    Mission Serializer for only Mission
+    model fields.
+    """
 
     class Meta:
         model = Mission
@@ -12,6 +16,11 @@ class MissionSerializer(serializers.ModelSerializer):
 
 
 class MissionRetrieveSerializer(serializers.ModelSerializer):
+    """
+    Mission Serializer for Mission model
+    fields and nested Robot model fields
+    """
+
     robot = RobotSerializer()
 
     class Meta:

@@ -24,7 +24,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 router = DefaultRouter()
+# robot routes
 router.register(r"robot", RobotViewSet)
+# mission routes
 router.register(r"mission", MissionViewSet)
 
 urlpatterns = [

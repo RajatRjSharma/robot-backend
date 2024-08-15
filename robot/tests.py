@@ -3,17 +3,11 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from robot.models import Robot
 
-from channels.layers import get_channel_layer
-from channels.testing import WebsocketCommunicator
-from django.test import TestCase
-from asgiref.testing import ApplicationCommunicator
-from channels.routing import ProtocolTypeRouter, URLRouter
-from channels.auth import AuthMiddlewareStack
-from robot.consumer import RobotMovementConsumer
-import json
-
 
 class RobotViewSetTests(APITestCase):
+    """
+    Testcases for Robot APIs.
+    """
 
     def setUp(self):
         # Create a Robot instance

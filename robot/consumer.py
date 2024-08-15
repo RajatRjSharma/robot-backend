@@ -4,6 +4,11 @@ import json
 
 
 class RobotMovementConsumer(JsonWebsocketConsumer):
+    """
+    Robot Movement Consumer handling Web-Socket
+    connection and operations like updating robot
+    coordinates to db.
+    """
 
     def connect(self):
         from robot.models import Robot
