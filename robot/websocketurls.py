@@ -3,5 +3,5 @@ from robot.consumer import RobotMovementConsumer
 
 # Web Socket url route
 websocket_urlpatterns = [
-    path("ws/movement/<int:robotID>/", RobotMovementConsumer.as_asgi()),
+    path("api/ws/movement/<int:robotID>/", RobotMovementConsumer.as_asgi()),
 ]
