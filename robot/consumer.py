@@ -1,4 +1,6 @@
 from channels.generic.websocket import JsonWebsocketConsumer
+from django.core.serializers import serialize
+import json
 
 
 class RobotMovementConsumer(JsonWebsocketConsumer):
@@ -13,6 +15,7 @@ class RobotMovementConsumer(JsonWebsocketConsumer):
             # Check if the Robot with the given ID exists
             self.robot = Robot.objects.get(id=self.robot_id)
             self.accept()  # Accept the WebSocket connection
+            self.send_json(json.loads(serialize("json", [self.robot]))[0]["fields"])
         except Robot.DoesNotExist:
             self.close()  # Reject the connection if the Robot does not exist
 
