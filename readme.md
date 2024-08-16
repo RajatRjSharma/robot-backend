@@ -1,5 +1,7 @@
 # Robot on Mission (Django Backend)
 
+[Live Link](https://ec2-13-127-133-231.ap-south-1.compute.amazonaws.com)
+
 - Python-Django backend project.
 - Django-Rest-Framework for APIs.
 - Django-Channels for Web Socket.
@@ -43,7 +45,7 @@ coverage report/html/xml
 
 ### Robot
 
-- /robot/ (GET) : To fetch List of Robots.
+- /api/robot/ (GET) : To fetch List of Robots.
 
   ```
   Response (200) :
@@ -58,7 +60,7 @@ coverage report/html/xml
   ]
   ```
 
-- /robot/ (POST) : To create a Robot.
+- /api/robot/ (POST) : To create a Robot.
 
   ```
   Payload :
@@ -78,7 +80,7 @@ coverage report/html/xml
     }
   ```
 
-- /robot/:robotID/ (GET / PUT / DELETE) : To get, update, delete a robot by id.
+- /api/robot/:robotID/ (GET / PUT / DELETE) : To get, update, delete a robot by id.
 
   ```
   (GET) Response (200) :
@@ -111,7 +113,7 @@ coverage report/html/xml
 
 ### Mission
 
-- /mission/ (GET) : To fetch List of Missions.
+- /api/mission/ (GET) : To fetch List of Missions.
 
   ```
   Response (200) :
@@ -125,7 +127,7 @@ coverage report/html/xml
   ]
   ```
 
-- /mission/ (POST) : To create a Mission.
+- /api/mission/ (POST) : To create a Mission.
 
   ```
   Payload :
@@ -143,7 +145,7 @@ coverage report/html/xml
     }
   ```
 
-- /mission/:missionID/ (GET / PUT / DELETE) : To get, update, delete a mission by id.
+- /api/mission/:missionID/ (GET / PUT / DELETE) : To get, update, delete a mission by id.
 
   ```
   (GET) Response (200) :
@@ -179,7 +181,7 @@ coverage report/html/xml
 
 ### Web Socket
 
-- ws/movement/:robotID/ : To save the movement of robot on screen by recording x and y axis coordinates.
+- /api/ws/movement/:robotID/ : To save the movement of robot on screen by recording x and y axis coordinates.
 
   ```
   On connection success we will get robot current details.
