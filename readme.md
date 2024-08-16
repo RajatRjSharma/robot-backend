@@ -1,13 +1,17 @@
 # Robot on Mission (Django Backend)
 
+## While using below link you may get warning for ssl certificate but you can accept it as I have used openssl for demonstration purpose
+
 [Live Link](https://ec2-13-127-133-231.ap-south-1.compute.amazonaws.com)
 
 - Python-Django backend project.
 - Django-Rest-Framework for APIs.
 - Django-Channels for Web Socket.
 - Redis for Channels as backend.
+- Postgres SQL as the database.
 - Dockerfile, Docker-Compose for containerization.
 - Coverage and Test-cases for code coverage.
+- Host on AWS ec2, by config Postgres, Docker, Nginx.
 
 ## Before starting further please create a python environment first, then install /requirements.txt and add a /.env with required envs as shown in /.env.example
 
