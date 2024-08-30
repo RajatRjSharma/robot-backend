@@ -3,7 +3,7 @@ FROM python:3.9-slim
 
 # Python Buffer Outout Is Straight To Terminal And Set Django Settings Module
 ENV PYTHONUNBUFFERED=1
-ENV DJANGO_SETTINGS_MODULE: config.settings
+ENV DJANGO_SETTINGS_MODULE=config.settings
 
 # Base Image Cleanup and Update
 RUN apt-get update \
