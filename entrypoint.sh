@@ -8,4 +8,4 @@ python manage.py makemigrations
 python manage.py migrate
 
 echo "Starting the server..."
-uvicorn config.asgi:application --host 0.0.0.0 --port 8000
+uvicorn config.asgi:application --host 0.0.0.0 --port 8000 --log-config config/logging_config.yaml
