@@ -49,7 +49,7 @@ coverage report/html/xml
 
 ### Robot
 
-- /api/robot/ (GET) : To fetch List of Robots.
+- /robot/ (GET) : To fetch List of Robots.
 
   ```
   Response (200) :
@@ -64,7 +64,7 @@ coverage report/html/xml
   ]
   ```
 
-- /api/robot/ (POST) : To create a Robot.
+- /robot/ (POST) : To create a Robot.
 
   ```
   Payload :
@@ -84,7 +84,7 @@ coverage report/html/xml
     }
   ```
 
-- /api/robot/:robotID/ (GET / PUT / DELETE) : To get, update, delete a robot by id.
+- /robot/:robotID/ (GET / PUT / DELETE) : To get, update, delete a robot by id.
 
   ```
   (GET) Response (200) :
@@ -117,7 +117,7 @@ coverage report/html/xml
 
 ### Mission
 
-- /api/mission/ (GET) : To fetch List of Missions.
+- /mission/ (GET) : To fetch List of Missions.
 
   ```
   Response (200) :
@@ -131,7 +131,7 @@ coverage report/html/xml
   ]
   ```
 
-- /api/mission/ (POST) : To create a Mission.
+- /mission/ (POST) : To create a Mission.
 
   ```
   Payload :
@@ -149,7 +149,7 @@ coverage report/html/xml
     }
   ```
 
-- /api/mission/:missionID/ (GET / PUT / DELETE) : To get, update, delete a mission by id.
+- /mission/:missionID/ (GET / PUT / DELETE) : To get, update, delete a mission by id.
 
   ```
   (GET) Response (200) :
@@ -185,7 +185,7 @@ coverage report/html/xml
 
 ### Web Socket
 
-- /api/ws/movement/:robotID/ : To save the movement of robot on screen by recording x and y axis coordinates.
+- /ws/movement/:robotID/ : To save the movement of robot on screen by recording x and y axis coordinates.
 
   ```
   On connection success we will get robot current details.
